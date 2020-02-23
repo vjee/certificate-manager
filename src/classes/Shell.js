@@ -81,8 +81,7 @@ class Shell {
     // prettier-ignore
     await Shell.exec("openssl", [ "req", "-new", "-key", KEY, "-out", CSR, "-subj", subjString ]);
     // prettier-ignore
-    await Shell.exec("openssl", [ "x509", "-req", "-in", CSR, "-CA", CA_PEM, "-CAkey", CA_KEY, "-CAcreateserial", "-out", CRT, "-days", "365", "-sha256", "-extfile", EXT 
-    ]);
+    await Shell.exec("openssl", [ "x509", "-req", "-in", CSR, "-CA", CA_PEM, "-CAkey", CA_KEY, "-CAcreateserial", "-out", CRT, "-days", "365", "-sha256", "-extfile", EXT ]);
   }
 
   static async createCertificateAuthority(name) {
