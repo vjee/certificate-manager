@@ -45,7 +45,6 @@ class VHosts {
     }
 
     Logger.status("Including New Virtual Host");
-    const { CM_PATH_VHOSTS } = process.env;
     await FileSystem.appendFile(
       CM_PATH_VHOSTS,
       VHOSTS_CONF,

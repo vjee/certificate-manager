@@ -2,6 +2,8 @@ const Execa = require("execa");
 const FileSystem = require("./FileSystem");
 const Logger = require("./Logger");
 
+const { CM_PATH_CA, CM_CA_NAME } = process.env;
+
 class Shell {
   static async exec(command, args, opts, hooks) {
     if (!opts) opts = {};
@@ -57,8 +59,6 @@ class Shell {
     const CRT = FileSystem.resolve(null, `${domain}.crt`);
     const EXT = FileSystem.resolve(null, `${domain}.ext`);
 
-    const { CM_PATH_CA, CM_CA_NAME } = process.env;
-
     const CA_PEM = `${CM_PATH_CA}/${CM_CA_NAME}.pem`;
     const CA_KEY = `${CM_PATH_CA}/${CM_CA_NAME}.key`;
 
@@ -85,8 +85,6 @@ class Shell {
   }
 
   static async createCertificateAuthority(name) {
-    const { CM_PATH_CA } = process.env;
-
     const CA_KEY = `${CM_PATH_CA}/${name}.key`;
     const CA_PEM = `${CM_PATH_CA}/${name}.pem`;
 

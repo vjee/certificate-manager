@@ -3,12 +3,13 @@ const Fs = require("fs").promises;
 const FsConstants = require("fs").constants;
 const Ejs = require("ejs");
 const Logger = require("./Logger");
-
 const asyncFilter = require("./../lib/asyncFilter");
+
+const { CM_PATH_SITES } = process.env;
 
 class FileSystem {
   static path(path) {
-    return Path.resolve(path ? path : process.env.CM_PATH_SITES);
+    return Path.resolve(path ? path : CM_PATH_SITES);
   }
 
   static resolve(path, basename) {
