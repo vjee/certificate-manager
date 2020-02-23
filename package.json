@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo 'No tests specified' && exit 0"
   },
+  "bin": {
+    "cm": "index.js"
+  },
   "author": "vjee <vjee2e@gmail.com>",
   "license": "MIT",
   "dependencies": {
